@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"os"
 	"time"
+
+	"github.com/gen2brain/beeep"
 )
 
 func main() {
@@ -20,12 +22,12 @@ func main() {
 
 	formatter := formatSeconds
 	switch {
-	case wait >= 24*time.Hour:
-		formatter = formatDays
-	case wait >= time.Hour:
-		formatter = formatHours
-	case wait >= time.Minute:
-		formatter = formatMinutes
+		case wait >= 24*time.Hour:
+			formatter = formatDays
+		case wait >= time.Hour:
+			formatter = formatHours
+		case wait >= time.Minute:
+			formatter = formatMinutes
 	}
 
 	fmt.Printf("Start timer for %s.\n\n", wait)
@@ -40,5 +42,10 @@ func main() {
 		fmt.Println("\a") // \a is the bell literal.
 	} else {
 		fmt.Println()
+	}
+
+	beepErr := beeep.Notify("Title", "Message body", "assets/information.png")
+	if beepErr != nil {
+		panic(beepErr)
 	}
 }

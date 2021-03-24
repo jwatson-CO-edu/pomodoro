@@ -8,6 +8,7 @@ import (
 
 	"github.com/carlmjohnson/pomodoro/display"
 	"github.com/nsf/termbox-go"
+	
 )
 
 func fullscreenCountdown(start, finish time.Time, formatter func(time.Duration) string) {
