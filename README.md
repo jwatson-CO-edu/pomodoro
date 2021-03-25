@@ -46,4 +46,4 @@ Chimes system bell at the end of the timer, unless -silence is set.
 ![screenshot](./screenshot.png)
 
 ## Recommended helper
-[Noti](https://github.com/variadico/noti) can be used to bring up a system alert when pomodoro finishes.
+[beeep](https://github.com/gen2brain/beeep) can be used to bring up a system alert when pomodoro finishes.
