@@ -60,6 +60,8 @@ func main() {
 	if beepErr != nil {
 		panic( beepErr )
 	}
+
+	// Ring bell, but my computer actually lacks a "pcspkr",  https://superuser.com/a/22769
 	err = beeep.Beep( beeep.DefaultFreq, beeep.DefaultDuration )
 	if err != nil {
 		panic(err)
