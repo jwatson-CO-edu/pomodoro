@@ -11,14 +11,15 @@ import (
 )
 
 func main() {
+	
+	// Set up time interval
 	start := time.Now()
-
-	finish, err := waitDuration(start)
+	finish, err := waitDuration( start )
 	if err != nil {
 		flag.Usage()
 		os.Exit(2)
 	}
-	wait := finish.Sub(start)
+	wait := finish.Sub( start )
 
 	formatter := formatSeconds
 	switch {
@@ -30,7 +31,7 @@ func main() {
 			formatter = formatMinutes
 	}
 
-	fmt.Printf("Start timer for %s.\n\n", wait)
+	fmt.Printf( "Start timer for %s.\n\n", wait )
 
 	if *simple {
 		simpleCountdown(finish, formatter)
@@ -44,8 +45,9 @@ func main() {
 		fmt.Println()
 	}
 
-	beepErr := beeep.Notify("Title", "Message body", "assets/information.png")
+	// Notify user that the interval has ended
+	beepErr := beeep.Notify("Interval Ended", string( rune( wait ) ), "assets/information.png")
 	if beepErr != nil {
-		panic(beepErr)
+		panic( beepErr )
 	}
 }

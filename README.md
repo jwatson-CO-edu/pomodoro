@@ -10,6 +10,11 @@ If you just want to install the binary to your current directory and don't care 
 GOBIN="$(pwd)" GOPATH="$(mktemp -d)" go get github.com/carlmjohnson/pomodoro
 ```
 
+Install from source:
+```bash
+env GOOS=linux GOARCH=amd64 go install
+```
+
 ## Usage
 Usage of pomodoro:
 
