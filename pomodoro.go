@@ -6,11 +6,16 @@ import (
 	"fmt"
 	"os"
 	"time"
+	"os/user"
+	"path/filepath"
 
 	"github.com/gen2brain/beeep"
 )
 
 func main() {
+
+	usr, _ := user.Current()
+	dir := usr.HomeDir
 	
 	// Set up time interval
 	start := time.Now()
@@ -46,7 +51,11 @@ func main() {
 	}
 
 	// Notify user that the interval has ended
-	beepErr := beeep.Alert( "Interval Ended", fmt.Sprintf( "%s Elapsed!", wait ), "assets/timer_icon_512.png" )
+	beepErr := beeep.Alert( 
+		"Interval Ended", 
+		fmt.Sprintf( "%s Elapsed!", wait ), 
+		filepath.Join( dir, "pomodoro/assets/timer_icon_512.png"),
+	)
 	if beepErr != nil {
 		panic( beepErr )
 	}
