@@ -14,6 +14,7 @@ import (
 
 func main() {
 
+	// Get the user directory
 	usr, _ := user.Current()
 	dir := usr.HomeDir
 	

@@ -4,14 +4,10 @@ Command line [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Technique),
 ## Installation
 First install [Go](http://golang.org).
 
-If you just want to install the binary to your current directory and don't care about the source code, run
-
 ```bash
-GOBIN="$(pwd)" GOPATH="$(mktemp -d)" go get github.com/carlmjohnson/pomodoro
-```
-
-Install from source:
-```bash
+cd ~
+git clone https://github.com/jwatson-CO-edu/pomodoro.git
+cd pomodoro
 env GOOS=linux GOARCH=amd64 go install
 ```
 
