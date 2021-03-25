@@ -46,8 +46,12 @@ func main() {
 	}
 
 	// Notify user that the interval has ended
-	beepErr := beeep.Notify("Interval Ended", string( rune( wait ) ), "assets/information.png")
+	beepErr := beeep.Alert( "Interval Ended", fmt.Sprintf( "%s Elapsed!", wait ), "assets/timer_icon_512.png" )
 	if beepErr != nil {
 		panic( beepErr )
+	}
+	err = beeep.Beep( beeep.DefaultFreq, beeep.DefaultDuration )
+	if err != nil {
+		panic(err)
 	}
 }
